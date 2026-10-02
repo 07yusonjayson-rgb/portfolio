@@ -1,0 +1,3474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jayson Yuson | WordPress Developer & Ecommerce Specialist</title>
+
+    <meta name="description"
+        content="Jayson Yuson - WordPress Developer and Ecommerce Specialist with experience in product listing, marketplace research, seller applications, and ecommerce website development.">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #080a0f;
+            color: #f5f7fa;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        :root {
+            --bg: #080a0f;
+            --bg-light: #0d1017;
+            --card: #11151e;
+            --border: #222936;
+            --text: #f5f7fa;
+            --muted: #9ba3b2;
+            --accent: #5c7cfa;
+            --accent-light: #748ffc;
+            --green: #54d68c;
+        }
+
+
+        /* =====================================================
+           CONTAINERS
+        ===================================================== */
+
+        .section-container,
+        .nav-container,
+        .hero-container,
+        .cta-container,
+        .footer-container {
+            width: min(1180px, 90%);
+            margin: auto;
+        }
+
+
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(8, 10, 15, 0.88);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .nav-container {
+            height: 75px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-menu a {
+            font-size: 13px;
+            color: var(--muted);
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: white;
+        }
+
+        .nav-button {
+            padding: 10px 18px;
+
+            border: 1px solid var(--border);
+            border-radius: 8px;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        .nav-button:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .menu-toggle {
+            display: none;
+
+            background: none;
+            border: none;
+
+            color: white;
+            font-size: 23px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding-top: 100px;
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(92,124,250,0.12),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 10% 80%,
+                    rgba(84,214,140,0.07),
+                    transparent 25%
+                );
+        }
+
+        .hero-container {
+            display: grid;
+
+            grid-template-columns: 1.1fr 0.9fr;
+
+            gap: 80px;
+
+            align-items: center;
+        }
+
+        .available {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 7px 12px;
+
+            margin-bottom: 25px;
+
+            border: 1px solid #263328;
+
+            border-radius: 30px;
+
+            background: rgba(84,214,140,0.06);
+
+            color: #a7e8c0;
+
+            font-size: 12px;
+        }
+
+        .available span {
+            width: 7px;
+            height: 7px;
+
+            background: var(--green);
+
+            border-radius: 50%;
+
+            box-shadow: 0 0 10px var(--green);
+        }
+
+        .small-heading {
+            color: var(--accent-light);
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 6vw, 75px);
+
+            line-height: 1.05;
+
+            letter-spacing: -4px;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: var(--accent-light);
+        }
+
+        .hero-description {
+            max-width: 650px;
+
+            color: var(--muted);
+
+            font-size: 17px;
+
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+
+            gap: 12px;
+
+            margin-bottom: 55px;
+        }
+
+        .primary-button,
+        .secondary-button {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            padding: 14px 22px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .primary-button {
+            background: var(--accent);
+            color: white;
+        }
+
+        .primary-button:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        .secondary-button {
+            border: 1px solid var(--border);
+            color: white;
+        }
+
+        .secondary-button:hover {
+            border-color: var(--accent);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 45px;
+        }
+
+        .hero-stats div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-stats strong {
+            font-size: 19px;
+        }
+
+        .hero-stats span {
+            color: var(--muted);
+
+            font-size: 11px;
+
+            margin-top: 3px;
+        }
+
+
+        /* =====================================================
+           CODE WINDOW
+        ===================================================== */
+
+        .hero-card {
+            position: relative;
+        }
+
+        .code-window {
+            background: #0c0f15;
+
+            border: 1px solid #252b38;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,0.5),
+                0 0 80px rgba(92,124,250,0.08);
+
+            transform: rotate(2deg);
+
+            transition: 0.5s;
+        }
+
+        .code-window:hover {
+            transform: rotate(0deg) translateY(-5px);
+        }
+
+        .window-header {
+            height: 48px;
+
+            padding: 0 18px;
+
+            display: flex;
+            align-items: center;
+
+            border-bottom: 1px solid #222733;
+
+            background: #11151c;
+        }
+
+        .window-header p {
+            color: #707989;
+
+            font-size: 11px;
+
+            margin-left: 30px;
+        }
+
+        .window-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .window-dots span {
+            width: 9px;
+            height: 9px;
+
+            background: #444b58;
+
+            border-radius: 50%;
+        }
+
+        .code-content {
+            padding: 35px 30px;
+
+            font-family: monospace;
+
+            font-size: 14px;
+
+            line-height: 2.2;
+        }
+
+        .indent {
+            padding-left: 25px;
+        }
+
+        .purple {
+            color: #c084fc;
+        }
+
+        .blue {
+            color: #60a5fa;
+        }
+
+        .green {
+            color: #86efac;
+        }
+
+        .orange {
+            color: #fdba74;
+        }
+
+
+        /* =====================================================
+           SECTIONS
+        ===================================================== */
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .section-label {
+            color: var(--accent-light);
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 15px;
+        }
+
+        .section-heading {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: end;
+
+            margin-bottom: 60px;
+        }
+
+        .section-heading h2,
+        .about h2,
+        .contact-section h2 {
+            font-size: clamp(32px, 4vw, 48px);
+
+            line-height: 1.1;
+
+            letter-spacing: -2px;
+        }
+
+        .section-heading > p {
+            max-width: 420px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           ABOUT
+        ===================================================== */
+
+        .about {
+            background: var(--bg-light);
+
+            border-top: 1px solid rgba(255,255,255,0.04);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: 0.9fr 1.1fr;
+
+            gap: 100px;
+        }
+
+        .about h2 span {
+            color: var(--accent-light);
+        }
+
+        .about-text {
+            color: var(--muted);
+
+            font-size: 15px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .about-highlights {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 14px;
+
+            margin-top: 30px;
+        }
+
+        .about-highlights div {
+            color: #d7dce5;
+
+            font-size: 13px;
+        }
+
+        .about-highlights i {
+            color: var(--green);
+
+            margin-right: 8px;
+        }
+
+
+        /* =====================================================
+           EXPERIENCE
+        ===================================================== */
+
+        .experience-section {
+            background: #080a0f;
+        }
+
+        .experience-intro {
+            max-width: 700px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            margin-bottom: 45px;
+        }
+
+        .experience-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+        .experience-card {
+            padding: 30px;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            transition: 0.3s;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+
+            border-color: #3a4762;
+        }
+
+        .experience-top {
+            display: flex;
+
+            align-items: flex-start;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-bottom: 20px;
+        }
+
+        .experience-icon {
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            border-radius: 10px;
+
+            background: rgba(92,124,250,0.1);
+
+            color: var(--accent-light);
+
+            font-size: 20px;
+        }
+
+        .experience-duration {
+            padding: 6px 10px;
+
+            border: 1px solid #294333;
+
+            border-radius: 20px;
+
+            background: rgba(84,214,140,0.06);
+
+            color: #9fe0b8;
+
+            font-size: 10px;
+
+            white-space: nowrap;
+        }
+
+        .experience-card h3 {
+            font-size: 19px;
+
+            margin-bottom: 8px;
+        }
+
+        .experience-card > p {
+            color: var(--muted);
+
+            font-size: 13px;
+
+            margin-bottom: 20px;
+        }
+
+        .experience-list {
+            list-style: none;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 11px;
+        }
+
+        .experience-list li {
+            position: relative;
+
+            padding-left: 20px;
+
+            color: #c4cad4;
+
+            font-size: 12px;
+        }
+
+        .experience-list li::before {
+            content: "";
+
+            position: absolute;
+
+            width: 5px;
+            height: 5px;
+
+            left: 2px;
+            top: 8px;
+
+            background: var(--accent-light);
+
+            border-radius: 50%;
+        }
+
+
+        /* =====================================================
+           MARKETPLACE EXPERIENCE
+        ===================================================== */
+
+        .marketplace-box {
+            margin-top: 25px;
+
+            padding: 35px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #111a31,
+                    #11151e
+                );
+
+            border: 1px solid #273451;
+
+            border-radius: 14px;
+        }
+
+        .marketplace-box h3 {
+            font-size: 22px;
+
+            margin-bottom: 10px;
+        }
+
+        .marketplace-box > p {
+            max-width: 750px;
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+            margin-bottom: 25px;
+        }
+
+        .marketplace-list {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 12px;
+        }
+
+        .marketplace-item {
+            padding: 15px;
+
+            background: rgba(255,255,255,0.025);
+
+            border: 1px solid #293348;
+
+            border-radius: 9px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: #dce1e9;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        .marketplace-item:hover {
+            border-color: var(--accent);
+
+            transform: translateY(-2px);
+        }
+
+        .marketplace-item i {
+            color: var(--accent-light);
+        }
+
+
+        /* =====================================================
+           SKILLS
+        ===================================================== */
+
+        .skills-section {
+            background: var(--bg-light);
+        }
+
+        .skills-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .skill-card {
+            padding: 30px;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            border-color: #3c4b6a;
+
+            transform: translateY(-5px);
+        }
+
+        .skill-icon {
+            width: 45px;
+            height: 45px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 20px;
+
+            border-radius: 10px;
+
+            background: rgba(92,124,250,0.1);
+
+            color: var(--accent-light);
+
+            font-size: 20px;
+        }
+
+        .skill-icon.wordpress {
+            background: rgba(0,115,170,0.12);
+            color: #4da3d8;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 10px;
+
+            font-size: 17px;
+        }
+
+        .skill-card p {
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           PROJECTS
+        ===================================================== */
+
+        .projects-section {
+            background: #080a0f;
+        }
+
+        .projects-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 25px;
+        }
+
+        .project-card {
+            overflow: hidden;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            transition: 0.4s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+
+            border-color: #35415b;
+        }
+
+        .project-preview {
+            height: 260px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .project-preview::before {
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.06);
+
+            top: -120px;
+            right: -80px;
+        }
+
+        .cornerstone {
+            background:
+                linear-gradient(
+                    135deg,
+                    #182d55,
+                    #315da1
+                );
+        }
+
+        .ecomdeal {
+            background:
+                linear-gradient(
+                    135deg,
+                    #3b2920,
+                    #9b6946
+                );
+        }
+
+        .craftcore {
+            background:
+                linear-gradient(
+                    135deg,
+                    #174d43,
+                    #31846f
+                );
+        }
+
+        .jes {
+            background:
+                linear-gradient(
+                    135deg,
+                    #2c263e,
+                    #6f5ba3
+                );
+        }
+
+        .bluefusion {
+            background:
+                linear-gradient(
+                    135deg,
+                    #092f52,
+                    #1377b8
+                );
+        }
+
+        .preview-content {
+            text-align: center;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+        .preview-label {
+            display: block;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            font-weight: 700;
+
+            opacity: 0.7;
+
+            margin-bottom: 10px;
+        }
+
+        .preview-content h3 {
+            font-size: 28px;
+
+            letter-spacing: -1px;
+
+            margin-bottom: 4px;
+        }
+
+        .preview-content p {
+            font-size: 12px;
+
+            opacity: 0.8;
+        }
+
+        .preview-icon {
+            margin-top: 22px;
+
+            font-size: 32px;
+
+            opacity: 0.85;
+        }
+
+        .project-info {
+            padding: 30px;
+        }
+
+        .project-number {
+            color: #657086;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            margin-bottom: 8px;
+        }
+
+        .project-info h3 {
+            font-size: 22px;
+
+            margin-bottom: 10px;
+        }
+
+        .project-info > p {
+            color: var(--muted);
+
+            font-size: 13px;
+
+            min-height: 65px;
+        }
+
+        .tags {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 7px;
+
+            margin: 20px 0;
+        }
+
+        .tags span {
+            padding: 5px 9px;
+
+            background: #191e28;
+
+            border: 1px solid #292f3a;
+
+            border-radius: 5px;
+
+            color: #aeb6c5;
+
+            font-size: 10px;
+        }
+
+        .project-link {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: var(--accent-light);
+
+            font-size: 12px;
+
+            font-weight: 600;
+        }
+
+        .project-link:hover {
+            color: white;
+        }
+
+
+        /* =====================================================
+           PROCESS
+        ===================================================== */
+
+        .process-section {
+            background: var(--bg-light);
+        }
+
+        .process-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .process-card {
+            position: relative;
+
+            padding: 30px;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+        }
+
+        .process-card > span {
+            position: absolute;
+
+            top: 20px;
+            right: 20px;
+
+            color: #343b49;
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+        .process-card > i {
+            color: var(--accent-light);
+
+            font-size: 22px;
+
+            margin-bottom: 20px;
+        }
+
+        .process-card h3 {
+            margin-bottom: 10px;
+
+            font-size: 16px;
+        }
+
+        .process-card p {
+            color: var(--muted);
+
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .cta-section {
+            padding: 90px 0;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #101a35,
+                    #10151f
+                );
+
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cta-container {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 40px;
+        }
+
+        .cta-container h2 {
+            max-width: 650px;
+
+            font-size: clamp(32px, 5vw, 55px);
+
+            line-height: 1.1;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 15px;
+        }
+
+        .cta-container h2 span {
+            color: var(--accent-light);
+        }
+
+        .cta-container p:not(.section-label) {
+            color: var(--muted);
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           CONTACT
+        ===================================================== */
+
+        .contact-section {
+            background: #080a0f;
+        }
+
+        .contact-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 0.8fr;
+
+            gap: 100px;
+
+            align-items: center;
+        }
+
+        .contact-section p {
+            color: var(--muted);
+
+            font-size: 14px;
+
+            max-width: 600px;
+
+            margin-top: 20px;
+        }
+
+        .contact-details {
+            margin-top: 35px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 9px;
+
+            background: rgba(92,124,250,0.1);
+
+            color: var(--accent-light);
+        }
+
+        .contact-item span {
+            display: block;
+
+            color: #697284;
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+        .contact-item a,
+        .contact-item p {
+            margin: 0;
+
+            color: #e4e7ec;
+
+            font-size: 13px;
+        }
+
+        .contact-card {
+            padding: 40px;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+        }
+
+        .contact-card h3 {
+            font-size: 24px;
+        }
+
+        .contact-card p {
+            margin-bottom: 30px;
+        }
+
+        .full-button {
+            width: 100%;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            padding: 35px 0;
+
+            border-top: 1px solid var(--border);
+
+            background: #06080c;
+        }
+
+        .footer-container {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+        .footer-container p {
+            color: #656d7b;
+
+            font-size: 11px;
+        }
+
+        .footer-links {
+            display: flex;
+
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #858d9b;
+
+            font-size: 11px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+
+        /* =====================================================
+           ANIMATIONS
+        ===================================================== */
+
+        .skill-card,
+        .project-card,
+        .process-card,
+        .experience-card {
+            opacity: 0;
+
+            transform: translateY(25px);
+
+            transition:
+                opacity 0.6s ease,
+                transform 0.6s ease,
+                border-color 0.3s;
+        }
+
+        .skill-card.show,
+        .project-card.show,
+        .process-card.show,
+        .experience-card.show {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .nav-menu {
+                gap: 18px;
+            }
+
+            .nav-menu a {
+                font-size: 12px;
+            }
+
+            .hero-container {
+                gap: 45px;
+            }
+
+        }
+
+
+        @media (max-width: 900px) {
+
+            .nav-menu {
+                position: absolute;
+
+                top: 75px;
+                left: 0;
+
+                width: 100%;
+
+                padding: 25px;
+
+                display: none;
+
+                flex-direction: column;
+
+                background: #0b0e14;
+
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-button {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+
+                gap: 50px;
+            }
+
+            .hero {
+                padding-top: 130px;
+                padding-bottom: 80px;
+            }
+
+            .hero-card {
+                max-width: 650px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+
+                gap: 40px;
+            }
+
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .marketplace-list {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+
+                gap: 50px;
+            }
+
+            .cta-container {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .section {
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+
+                letter-spacing: -2.5px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+            .hero-stats {
+                gap: 20px;
+
+                justify-content: space-between;
+            }
+
+            .hero-stats strong {
+                font-size: 15px;
+            }
+
+            .hero-stats span {
+                font-size: 9px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .marketplace-list {
+                grid-template-columns: 1fr;
+            }
+
+            .about-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .section-heading {
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 20px;
+            }
+
+            .project-preview {
+                height: 230px;
+            }
+
+            .experience-top {
+                flex-direction: column;
+            }
+
+            .footer-container {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a href="#home" class="logo">
+            Jayson<span>.</span>
+        </a>
+
+        <nav class="nav-menu" id="navMenu">
+
+            <a href="#home">Home</a>
+
+            <a href="#about">About</a>
+
+            <a href="#experience">Experience</a>
+
+            <a href="#skills">Skills</a>
+
+            <a href="#projects">Projects</a>
+
+            <a href="#process">Process</a>
+
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+        <a href="#contact" class="nav-button">
+            Let's Talk
+        </a>
+
+        <button class="menu-toggle" id="menuToggle">
+
+            <i class="fas fa-bars"></i>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+    <div class="hero-container">
+
+
+        <div class="hero-content">
+
+            <div class="available">
+
+                <span></span>
+
+                Available for Work
+
+            </div>
+
+            <p class="small-heading">
+                WORDPRESS DEVELOPER & ECOMMERCE SPECIALIST
+            </p>
+
+            <h1>
+
+                Building Modern
+
+                <span>Websites</span>
+
+                That Work.
+
+            </h1>
+
+            <p class="hero-description">
+
+                WordPress Developer and Ecommerce Specialist with
+                experience in product listing, marketplace research,
+                seller applications, ecommerce websites, and
+                responsive web design.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#projects" class="primary-button">
+
+                    View My Work
+
+                    <i class="fas fa-arrow-right"></i>
+
+                </a>
+
+                <a href="#experience" class="secondary-button">
+
+                    My Experience
+
+                </a>
+
+            </div>
+
+            <div class="hero-stats">
+
+                <div>
+
+                    <strong>1.5+</strong>
+
+                    <span>Years Listing</span>
+
+                </div>
+
+                <div>
+
+                    <strong>5+</strong>
+
+                    <span>Web Projects</span>
+
+                </div>
+
+                <div>
+
+                    <strong>6+</strong>
+
+                    <span>Marketplaces</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CODE WINDOW -->
+
+        <div class="hero-card">
+
+            <div class="code-window">
+
+                <div class="window-header">
+
+                    <div class="window-dots">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                    <p>
+                        ecommerce-specialist.js
+                    </p>
+
+                </div>
+
+                <div class="code-content">
+
+                    <p>
+
+                        <span class="purple">
+                            &lt;developer&gt;
+                        </span>
+
+                    </p>
+
+                    <p class="indent">
+
+                        <span class="blue">
+                            name:
+                        </span>
+
+                        <span class="green">
+                            "Jayson Yuson"
+                        </span>
+
+                    </p>
+
+                    <p class="indent">
+
+                        <span class="blue">
+                            role:
+                        </span>
+
+                        <span class="green">
+                            "WordPress Developer"
+                        </span>
+
+                    </p>
+
+                    <p class="indent">
+
+                        <span class="blue">
+                            experience:
+                        </span>
+
+                        <span class="green">
+                            "Ecommerce"
+                        </span>
+
+                    </p>
+
+                    <p class="indent">
+
+                        <span class="blue">
+                            product_listing:
+                        </span>
+
+                        <span class="green">
+                            "1.5+ Years"
+                        </span>
+
+                    </p>
+
+                    <p class="indent">
+
+                        <span class="blue">
+                            marketplaces:
+                        </span>
+
+                        <span class="orange">
+                            6+
+                        </span>
+
+                    </p>
+
+                    <p>
+
+                        <span class="purple">
+                            &lt;/developer&gt;
+                        </span>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section class="section about" id="about">
+
+    <div class="section-container">
+
+        <div class="section-label">
+            ABOUT ME
+        </div>
+
+        <div class="about-grid">
+
+
+            <div>
+
+                <h2>
+
+                    I turn ideas into
+
+                    <span>
+                        functional websites.
+                    </span>
+
+                </h2>
+
+            </div>
+
+
+            <div class="about-text">
+
+                <p>
+
+                    I'm a WordPress Developer and Ecommerce Specialist
+                    with hands-on experience building and customizing
+                    ecommerce and business websites.
+
+                </p>
+
+                <p>
+
+                    Alongside website development, I have experience
+                    managing product listings, conducting marketplace
+                    research, preparing seller applications, and
+                    working with client-provided business information
+                    and credentials.
+
+                </p>
+
+                <p>
+
+                    My experience combines technical web development
+                    with ecommerce operations, allowing me to understand
+                    both the website side and marketplace side of an
+                    online business.
+
+                </p>
+
+
+                <div class="about-highlights">
+
+                    <div>
+
+                        <i class="fas fa-check"></i>
+
+                        WordPress Development
+
+                    </div>
+
+                    <div>
+
+                        <i class="fas fa-check"></i>
+
+                        Product Listing
+
+                    </div>
+
+                    <div>
+
+                        <i class="fas fa-check"></i>
+
+                        Marketplace Research
+
+                    </div>
+
+                    <div>
+
+                        <i class="fas fa-check"></i>
+
+                        Ecommerce Operations
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     EXPERIENCE
+===================================================== -->
+
+<section class="section experience-section" id="experience">
+
+    <div class="section-container">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <div class="section-label">
+                    PROFESSIONAL EXPERIENCE
+                </div>
+
+                <h2>
+                    Ecommerce & Marketplace Experience
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <p class="experience-intro">
+
+            My experience covers product listing, ecommerce research,
+            marketplace operations, seller applications, and WordPress
+            website development. I have worked with multiple ecommerce
+            platforms and marketplace projects using client-provided
+            business information and credentials.
+
+        </p>
+
+
+        <div class="experience-grid">
+
+
+            <!-- PRODUCT LISTING -->
+
+            <div class="experience-card">
+
+                <div class="experience-top">
+
+                    <div class="experience-icon">
+
+                        <i class="fas fa-box-open"></i>
+
+                    </div>
+
+                    <span class="experience-duration">
+                        1 Year & 6 Months
+                    </span>
+
+                </div>
+
+                <h3>
+                    Product Listing
+                </h3>
+
+                <p>
+                    Ecommerce Product Listing & Catalog Management
+                </p>
+
+                <ul class="experience-list">
+
+                    <li>
+                        Created and managed product listings for ecommerce stores.
+                    </li>
+
+                    <li>
+                        Added product titles, descriptions, specifications,
+                        images, categories, and product information.
+                    </li>
+
+                    <li>
+                        Organized products according to marketplace
+                        categories and requirements.
+                    </li>
+
+                    <li>
+                        Researched products, competitors, categories,
+                        pricing, and marketplace opportunities.
+                    </li>
+
+                    <li>
+                        Maintained accurate and organized product data.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- TIKTOK -->
+
+            <div class="experience-card">
+
+                <div class="experience-top">
+
+                    <div class="experience-icon">
+
+                        <i class="fab fa-tiktok"></i>
+
+                    </div>
+
+                </div>
+
+                <h3>
+                    TikTok Shop Listing
+                </h3>
+
+                <p>
+                    Product Catalog & Marketplace Listing
+                </p>
+
+                <ul class="experience-list">
+
+                    <li>
+                        Created and managed product listings for TikTok Shop.
+                    </li>
+
+                    <li>
+                        Prepared product information for marketplace
+                        presentation.
+                    </li>
+
+                    <li>
+                        Organized product categories and listing details.
+                    </li>
+
+                    <li>
+                        Researched product opportunities and marketplace
+                        requirements.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- KOHLS -->
+
+            <div class="experience-card">
+
+                <div class="experience-top">
+
+                    <div class="experience-icon">
+
+                        <i class="fas fa-store"></i>
+
+                    </div>
+
+                </div>
+
+                <h3>
+                    Kohl's Listing
+                </h3>
+
+                <p>
+                    Ecommerce Product Research & Listing
+                </p>
+
+                <ul class="experience-list">
+
+                    <li>
+                        Researched products and categories suitable for
+                        Kohl's marketplace opportunities.
+                    </li>
+
+                    <li>
+                        Prepared product information and listing details.
+                    </li>
+
+                    <li>
+                        Conducted marketplace and category research.
+                    </li>
+
+                    <li>
+                        Assisted with seller marketplace research and
+                        application preparation.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- JCPENNEY -->
+
+            <div class="experience-card">
+
+                <div class="experience-top">
+
+                    <div class="experience-icon">
+
+                        <i class="fas fa-tags"></i>
+
+                    </div>
+
+                </div>
+
+                <h3>
+                    JCPenney Listing
+                </h3>
+
+                <p>
+                    Product Listing & Marketplace Research
+                </p>
+
+                <ul class="experience-list">
+
+                    <li>
+                        Researched products and categories for JCPenney.
+                    </li>
+
+                    <li>
+                        Worked with product information and ecommerce
+                        listing requirements.
+                    </li>
+
+                    <li>
+                        Conducted category and marketplace research.
+                    </li>
+
+                    <li>
+                        Assisted with marketplace application research
+                        and preparation.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- RESEARCH -->
+
+            <div class="experience-card">
+
+                <div class="experience-top">
+
+                    <div class="experience-icon">
+
+                        <i class="fas fa-magnifying-glass-chart"></i>
+
+                    </div>
+
+                </div>
+
+                <h3>
+                    Ecommerce & Marketplace Research
+                </h3>
+
+                <p>
+                    Product, Category & Marketplace Research
+                </p>
+
+                <ul class="experience-list">
+
+                    <li>
+                        Researched products and category opportunities
+                        across ecommerce marketplaces.
+                    </li>
+
+                    <li>
+                        Identified product gaps and marketplace
+                        opportunities.
+                    </li>
+
+                    <li>
+                        Researched competitors, categories, pricing,
+                        and product availability.
+                    </li>
+
+                    <li>
+                        Gathered marketplace information for client
+                        decision-making.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- SELLER APPLICATION -->
+
+            <div class="experience-card">
+
+                <div class="experience-top">
+
+                    <div class="experience-icon">
+
+                        <i class="fas fa-file-signature"></i>
+
+                    </div>
+
+                </div>
+
+                <h3>
+                    Marketplace Seller Applications
+                </h3>
+
+                <p>
+                    Marketplace Application & Follow-Up Support
+                </p>
+
+                <ul class="experience-list">
+
+                    <li>
+                        Researched seller application requirements for
+                        different marketplaces.
+                    </li>
+
+                    <li>
+                        Prepared marketplace applications using
+                        client-provided business information and credentials.
+                    </li>
+
+                    <li>
+                        Assisted with business information, product
+                        categories, and application requirements.
+                    </li>
+
+                    <li>
+                        Monitored application status and performed
+                        follow-ups when necessary.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- MARKETPLACES -->
+
+        <div class="marketplace-box">
+
+            <h3>
+                Marketplace Experience
+            </h3>
+
+            <p>
+
+                Experience researching and preparing seller applications
+                and ecommerce opportunities across major online
+                marketplaces using client-provided business information
+                and credentials.
+
+            </p>
+
+
+            <div class="marketplace-list">
+
+
+                <div class="marketplace-item">
+
+                    <i class="fas fa-shopping-cart"></i>
+
+                    Amazon
+
+                </div>
+
+
+                <div class="marketplace-item">
+
+                    <i class="fas fa-store"></i>
+
+                    Walmart
+
+                </div>
+
+
+                <div class="marketplace-item">
+
+                    <i class="fas fa-palette"></i>
+
+                    Michaels
+
+                </div>
+
+
+                <div class="marketplace-item">
+
+                    <i class="fas fa-home"></i>
+
+                    Wayfair
+
+                </div>
+
+
+                <div class="marketplace-item">
+
+                    <i class="fas fa-tags"></i>
+
+                    Kohl's
+
+                </div>
+
+
+                <div class="marketplace-item">
+
+                    <i class="fas fa-bag-shopping"></i>
+
+                    JCPenney
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SKILLS
+===================================================== -->
+
+<section class="section skills-section" id="skills">
+
+    <div class="section-container">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <div class="section-label">
+                    MY SKILLS
+                </div>
+
+                <h2>
+                    Tools & Technologies
+                </h2>
+
+            </div>
+
+            <p>
+
+                Technical, ecommerce, and marketplace skills
+                developed through hands-on experience.
+
+            </p>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon wordpress">
+
+                    <i class="fab fa-wordpress"></i>
+
+                </div>
+
+                <h3>
+                    WordPress
+                </h3>
+
+                <p>
+
+                    Website development, customization,
+                    ecommerce setup, page building,
+                    and WordPress management.
+
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+
+                    <i class="fas fa-box-open"></i>
+
+                </div>
+
+                <h3>
+                    Product Listing
+                </h3>
+
+                <p>
+
+                    Product titles, descriptions, specifications,
+                    categories, images, and ecommerce catalog management.
+
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+
+                    <i class="fas fa-cart-shopping"></i>
+
+                </div>
+
+                <h3>
+                    Ecommerce
+                </h3>
+
+                <p>
+
+                    Ecommerce websites, product catalogs,
+                    categories, shopping experiences, and
+                    online store structure.
+
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+
+                    <i class="fas fa-magnifying-glass"></i>
+
+                </div>
+
+                <h3>
+                    Product Research
+                </h3>
+
+                <p>
+
+                    Product discovery, competitor research,
+                    category research, marketplace research,
+                    and product gap analysis.
+
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+
+                    <i class="fas fa-file-circle-check"></i>
+
+                </div>
+
+                <h3>
+                    Marketplace Applications
+                </h3>
+
+                <p>
+
+                    Seller application preparation, requirements
+                    research, client information management,
+                    and application follow-ups.
+
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+
+                    <i class="fas fa-code"></i>
+
+                </div>
+
+                <h3>
+                    HTML & CSS
+                </h3>
+
+                <p>
+
+                    Clean website structure, custom styling,
+                    responsive layouts, and frontend development.
+
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+
+                    <i class="fab fa-js"></i>
+
+                </div>
+
+                <h3>
+                    JavaScript
+                </h3>
+
+                <p>
+
+                    Interactive elements, navigation,
+                    animations, and frontend functionality.
+
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+
+                    <i class="fas fa-mobile-screen"></i>
+
+                </div>
+
+                <h3>
+                    Responsive Design
+                </h3>
+
+                <p>
+
+                    Websites optimized for desktop,
+                    tablet, and mobile devices.
+
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+
+                    <i class="fas fa-palette"></i>
+
+                </div>
+
+                <h3>
+                    UI Design
+                </h3>
+
+                <p>
+
+                    Clean layouts, visual hierarchy,
+                    navigation, and user-focused interfaces.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+
+<section class="section projects-section" id="projects">
+
+    <div class="section-container">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <div class="section-label">
+                    SELECTED WORK
+                </div>
+
+                <h2>
+                    My WordPress Projects
+                </h2>
+
+            </div>
+
+            <p>
+
+                A selection of ecommerce and business websites
+                I've worked on using WordPress.
+
+            </p>
+
+        </div>
+
+
+        <div class="projects-grid">
+
+
+            <!-- PROJECT 1 -->
+
+            <article class="project-card">
+
+                <div class="project-preview cornerstone">
+
+                    <div class="preview-content">
+
+                        <span class="preview-label">
+                            ECOMMERCE
+                        </span>
+
+                        <h3>
+                            Trade Cornerstone
+                        </h3>
+
+                        <p>
+                            Ecommerce Website
+                        </p>
+
+                        <div class="preview-icon">
+
+                            <i class="fas fa-store"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="project-info">
+
+                    <div class="project-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Trade Cornerstone
+                    </h3>
+
+                    <p>
+
+                        A specialized ecommerce website focused on
+                        product presentation, categories, customer
+                        reviews, and online shopping functionality.
+
+                    </p>
+
+                    <div class="tags">
+
+                        <span>WordPress</span>
+
+                        <span>Ecommerce</span>
+
+                        <span>UI Design</span>
+
+                    </div>
+
+                    <a
+                        href="https://tradecornerstone.com/"
+                        target="_blank"
+                        class="project-link">
+
+                        Visit Website
+
+                        <i class="fas fa-arrow-up-right-from-square"></i>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 2 -->
+
+            <article class="project-card">
+
+                <div class="project-preview ecomdeal">
+
+                    <div class="preview-content">
+
+                        <span class="preview-label">
+                            ECOMMERCE
+                        </span>
+
+                        <h3>
+                            EcomDealShop
+                        </h3>
+
+                        <p>
+                            Furniture & Home Essentials
+                        </p>
+
+                        <div class="preview-icon">
+
+                            <i class="fas fa-couch"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="project-info">
+
+                    <div class="project-number">
+                        02
+                    </div>
+
+                    <h3>
+                        EcomDealShop
+                    </h3>
+
+                    <p>
+
+                        An ecommerce store focused on furniture,
+                        home décor, storage, kitchen and dining,
+                        bedroom, bathroom, and outdoor products.
+
+                    </p>
+
+                    <div class="tags">
+
+                        <span>WordPress</span>
+
+                        <span>Furniture</span>
+
+                        <span>Ecommerce</span>
+
+                    </div>
+
+                    <a
+                        href="https://ecomdealshop.com/"
+                        target="_blank"
+                        class="project-link">
+
+                        Visit Website
+
+                        <i class="fas fa-arrow-up-right-from-square"></i>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 3 -->
+
+            <article class="project-card">
+
+                <div class="project-preview craftcore">
+
+                    <div class="preview-content">
+
+                        <span class="preview-label">
+                            CREATIVE ECOMMERCE
+                        </span>
+
+                        <h3>
+                            Craft Core Hub
+                        </h3>
+
+                        <p>
+                            Arts & Crafts Store
+                        </p>
+
+                        <div class="preview-icon">
+
+                            <i class="fas fa-paintbrush"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="project-info">
+
+                    <div class="project-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Craft Core Hub
+                    </h3>
+
+                    <p>
+
+                        An arts and crafts ecommerce project designed
+                        around creative supplies, tools, kits, and
+                        different crafting categories.
+
+                    </p>
+
+                    <div class="tags">
+
+                        <span>WordPress</span>
+
+                        <span>Crafts</span>
+
+                        <span>UI/UX</span>
+
+                    </div>
+
+                    <a
+                        href="https://craftcorehub.com/"
+                        target="_blank"
+                        class="project-link">
+
+                        Visit Website
+
+                        <i class="fas fa-arrow-up-right-from-square"></i>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 4 -->
+
+            <article class="project-card">
+
+                <div class="project-preview jes">
+
+                    <div class="preview-content">
+
+                        <span class="preview-label">
+                            BUSINESS
+                        </span>
+
+                        <h3>
+                            JES Enterprises
+                        </h3>
+
+                        <p>
+                            Business Website
+                        </p>
+
+                        <div class="preview-icon">
+
+                            <i class="fas fa-building"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="project-info">
+
+                    <div class="project-number">
+                        04
+                    </div>
+
+                    <h3>
+                        JES Enterprises Hub
+                    </h3>
+
+                    <p>
+
+                        A business-focused WordPress website developed
+                        with a clean structure and ecommerce-oriented
+                        presentation.
+
+                    </p>
+
+                    <div class="tags">
+
+                        <span>WordPress</span>
+
+                        <span>Business</span>
+
+                        <span>Web Design</span>
+
+                    </div>
+
+                    <a
+                        href="https://jesenterpriseshub.com/"
+                        target="_blank"
+                        class="project-link">
+
+                        Visit Website
+
+                        <i class="fas fa-arrow-up-right-from-square"></i>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 5 -->
+
+            <article class="project-card">
+
+                <div class="project-preview bluefusion">
+
+                    <div class="preview-content">
+
+                        <span class="preview-label">
+                            ECOMMERCE
+                        </span>
+
+                        <h3>
+                            Blue Fusion Commerce
+                        </h3>
+
+                        <p>
+                            Online Commerce Website
+                        </p>
+
+                        <div class="preview-icon">
+
+                            <i class="fas fa-bag-shopping"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="project-info">
+
+                    <div class="project-number">
+                        05
+                    </div>
+
+                    <h3>
+                        Blue Fusion Commerce
+                    </h3>
+
+                    <p>
+
+                        An ecommerce-focused WordPress project with
+                        product presentation, shopping functionality,
+                        and an online-store structure.
+
+                    </p>
+
+                    <div class="tags">
+
+                        <span>WordPress</span>
+
+                        <span>Ecommerce</span>
+
+                        <span>Web Design</span>
+
+                    </div>
+
+                    <a
+                        href="https://bluefusioncommerce.com/"
+                        target="_blank"
+                        class="project-link">
+
+                        Visit Website
+
+                        <i class="fas fa-arrow-up-right-from-square"></i>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WORK PROCESS
+===================================================== -->
+
+<section class="section process-section" id="process">
+
+    <div class="section-container">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <div class="section-label">
+                    MY WORKFLOW
+                </div>
+
+                <h2>
+                    How I Work
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+            <div class="process-card">
+
+                <span>01</span>
+
+                <i class="fas fa-magnifying-glass"></i>
+
+                <h3>
+                    Research
+                </h3>
+
+                <p>
+
+                    Researching products, categories, marketplaces,
+                    competitors, and project requirements.
+
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <span>02</span>
+
+                <i class="fas fa-list-check"></i>
+
+                <h3>
+                    Organize
+                </h3>
+
+                <p>
+
+                    Organizing product information, categories,
+                    marketplace data, and website content.
+
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <span>03</span>
+
+                <i class="fas fa-code"></i>
+
+                <h3>
+                    Develop
+                </h3>
+
+                <p>
+
+                    Building and customizing WordPress websites,
+                    ecommerce pages, and website functionality.
+
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <span>04</span>
+
+                <i class="fas fa-check-double"></i>
+
+                <h3>
+                    Review
+                </h3>
+
+                <p>
+
+                    Checking listings, website layouts, links,
+                    content, responsiveness, and overall quality.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta-section">
+
+    <div class="cta-container">
+
+        <div>
+
+            <p class="section-label">
+                HAVE A PROJECT?
+            </p>
+
+            <h2>
+
+                Let's build something
+
+                <span>
+                    great together.
+                </span>
+
+            </h2>
+
+            <p>
+
+                Looking for a WordPress developer or ecommerce
+                specialist for your next project?
+
+            </p>
+
+        </div>
+
+        <a href="#contact" class="primary-button">
+
+            Start a Conversation
+
+            <i class="fas fa-arrow-right"></i>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section class="section contact-section" id="contact">
+
+    <div class="section-container">
+
+        <div class="contact-grid">
+
+
+            <div>
+
+                <div class="section-label">
+                    CONTACT
+                </div>
+
+                <h2>
+                    Let's connect.
+                </h2>
+
+                <p>
+
+                    I'm open to WordPress development,
+                    ecommerce projects, product listing,
+                    marketplace research, and other
+                    ecommerce opportunities.
+
+                </p>
+
+
+                <div class="contact-details">
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+
+                            <i class="fas fa-envelope"></i>
+
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Email
+                            </span>
+
+                            <a href="mailto:yusonjayson07@gmail.com">
+
+                                yusonjayson07@gmail.com
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+
+                            <i class="fas fa-location-dot"></i>
+
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Location
+                            </span>
+
+                            <p>
+                                Philippines
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <h3>
+                    Start a Project
+                </h3>
+
+                <p>
+
+                    Tell me about your website, ecommerce,
+                    product listing, or marketplace project.
+
+                </p>
+
+                <a
+                    href="mailto:yusonjayson07@gmail.com?subject=Website%20or%20Ecommerce%20Project%20Inquiry&body=Hello%20Jayson,%0D%0A%0D%0AI%20would%20like%20to%20discuss%20a%20project%20with%20you.%0D%0A%0D%0AProject%20Details:%0D%0A"
+                    class="primary-button full-button">
+
+                    Send Me an Email
+
+                    <i class="fas fa-paper-plane"></i>
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-container">
+
+
+        <div>
+
+            <a href="#home" class="logo">
+                Jayson<span>.</span>
+            </a>
+
+            <p>
+                WordPress Developer & Ecommerce Specialist
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#experience">
+                Experience
+            </a>
+
+            <a href="#projects">
+                Projects
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+        </div>
+
+
+        <p class="copyright">
+
+            © <span id="year"></span>
+            Jayson Yuson. All rights reserved.
+
+        </p>
+
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+    /* =========================================
+       MOBILE NAVIGATION
+    ========================================= */
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const navMenu =
+        document.getElementById("navMenu");
+
+
+    menuToggle.addEventListener("click", () => {
+
+        navMenu.classList.toggle("active");
+
+        const icon =
+            menuToggle.querySelector("i");
+
+
+        if (navMenu.classList.contains("active")) {
+
+            icon.classList.remove("fa-bars");
+
+            icon.classList.add("fa-xmark");
+
+        } else {
+
+            icon.classList.remove("fa-xmark");
+
+            icon.classList.add("fa-bars");
+
+        }
+
+    });
+
+
+    /* Close mobile menu */
+
+    document
+        .querySelectorAll(".nav-menu a")
+        .forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navMenu.classList.remove("active");
+
+                const icon =
+                    menuToggle.querySelector("i");
+
+                icon.classList.remove("fa-xmark");
+
+                icon.classList.add("fa-bars");
+
+            });
+
+        });
+
+
+
+    /* =========================================
+       CURRENT YEAR
+    ========================================= */
+
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+
+
+    /* =========================================
+       SCROLL ANIMATIONS
+    ========================================= */
+
+    const animatedElements =
+        document.querySelectorAll(
+            ".skill-card, .project-card, .process-card, .experience-card"
+        );
+
+
+    const observer =
+        new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("show");
+
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.12
+            }
+
+        );
+
+
+    animatedElements.forEach(element => {
+
+        observer.observe(element);
+
+    });
+
+
+
+    /* =========================================
+       NAVBAR SCROLL EFFECT
+    ========================================= */
+
+    const navbar =
+        document.querySelector(".navbar");
+
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 50) {
+
+            navbar.style.background =
+                "rgba(6, 8, 12, 0.96)";
+
+        } else {
+
+            navbar.style.background =
+                "rgba(8, 10, 15, 0.88)";
+
+        }
+
+    });
+
+</script>
+
+
+</body>
+</html>
